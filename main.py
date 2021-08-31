@@ -6,19 +6,25 @@
 import deeplabcut
 import os
 
-video_dir = "/Users/anacarolinabotturabarros/University of Glasgow/kohl-lab - RSCABAPP2/Experiments/coho0007_fopmt1_AB/20210308/"
+poses_dir = "/Users/anacarolinabotturabarros/PycharmProjects/OPL/pose_files/20210308/"
 
-video_path_list = [os.path.join(video_dir,f) for f in os.listdir(video_dir) if (os.path.isfile(os.path.join(video_dir, f)) | f.endswith(".avi"))]
+poses_list = [os.path.join(poses_dir, f) for f in os.listdir(poses_dir) if
+              (f.endswith(".csv"))]
 
-config_path = deeplabcut.create_new_project('coho0007_fopmt1_AB', 'AB', video_path_list)
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+print(poses_list)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# OPL experiment class
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# mouse class with sex, dob?, files (dataframe with date as name)
+
+class Mouse:
+
+    def __init__(self, mouse_id=None, pose_files=None):
+        self.id = mouse_id
+        self.sex = 'Undefined'
+        self.data = pose_files
+        self.group = None
+
+    def get_dates(self):
+        pass
